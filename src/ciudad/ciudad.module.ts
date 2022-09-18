@@ -4,7 +4,7 @@ import { CiudadEntity } from './ciudad.entity';
 import { CiudadService } from './ciudad.service';
 
 @Module({
-  providers: [CiudadService],
-  imports: [TypeOrmModule.forFeature([CiudadEntity])]
+  imports: [TypeOrmModule.forFeature([CiudadEntity])],
+  providers: [CiudadService]
 })
 export class CiudadModule {}

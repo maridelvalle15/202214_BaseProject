@@ -6,10 +6,11 @@ import { CiudadEntity } from './ciudad.entity';
 
 @Injectable()
 export class CiudadService {
+    private readonly paises: string[];
+
     constructor(
         @InjectRepository(CiudadEntity)
         private readonly ciudadRepository: Repository<CiudadEntity>,
-        private readonly paises: string[]
     ){
         this.paises = ["Argentina", "Ecuador", "Paraguay"];
     }
@@ -28,8 +29,8 @@ export class CiudadService {
     }
 
     async create(ciudad: CiudadEntity): Promise<CiudadEntity> {
-        let nombre = ciudad.nombre;
-        let valid_pais = this.paises.includes(nombre);
+        let pais = ciudad.pais;
+        let valid_pais = this.paises.includes(pais);
 
         if (!valid_pais) {
             throw new BusinessLogicException("The given pais for ciudad is not valid", BusinessError.PRECONDITION_FAILED);
@@ -38,8 +39,8 @@ export class CiudadService {
     }
 
     async update(id: string, ciudad: CiudadEntity): Promise<CiudadEntity> {
-        let nombre = ciudad.nombre;
-        let valid_pais = this.paises.includes(nombre);
+        let pais = ciudad.pais;
+        let valid_pais = this.paises.includes(pais);
 
         if (!valid_pais) {
             throw new BusinessLogicException("The given pais for ciudad is not valid", BusinessError.PRECONDITION_FAILED);

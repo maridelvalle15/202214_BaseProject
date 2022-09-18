@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
 import { SupermercadoCiudadService } from './supermercado-ciudad.service';
 
 describe('SupermercadoCiudadService', () => {
@@ -6,6 +7,7 @@ describe('SupermercadoCiudadService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [...TypeOrmTestingConfig()],
       providers: [SupermercadoCiudadService],
     }).compile();
 
