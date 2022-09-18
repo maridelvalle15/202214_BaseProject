@@ -76,6 +76,19 @@ describe('SupermercadoService', () => {
     expect(storedSupermercado.nombre).toEqual(newSupermercado.nombre)
   });
 
+  it('create with invalid name should throw an exception', async () => {
+    const supermercado: SupermercadoEntity = {
+      id: "",
+      nombre: "nombre",
+      longitud: 1,
+      latitud: 1,
+      pag_web: faker.internet.domainName(),
+      ciudades: []
+    }
+
+    await expect(() => supermercadoService.create(supermercado)).rejects.toHaveProperty("message", "The length of the supermercado name is not valid")
+  });
+
   it('update should modify a supermercado', async () => {
     const supermercado: SupermercadoEntity = supermercadosList[0];
     supermercado.nombre = faker.lorem.sentence(3);
@@ -94,6 +107,15 @@ describe('SupermercadoService', () => {
       ...supermercado, nombre: faker.lorem.sentence(3),
     }
     await expect(() => supermercadoService.update("0", supermercado)).rejects.toHaveProperty("message", "The supermercado with the given id was not found")
+  });
+
+  it('update with invalid name should throw an exception', async () => {
+    let supermercado: SupermercadoEntity = supermercadosList[0];
+    supermercado = {
+      ...supermercado, nombre: "nombre",
+    }
+
+    await expect(() => supermercadoService.update("0", supermercado)).rejects.toHaveProperty("message", "The length of the supermercado name is not valid")
   });
 
   it('delete should remove a supermercado', async () => {

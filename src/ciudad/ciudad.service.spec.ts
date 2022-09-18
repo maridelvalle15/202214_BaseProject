@@ -74,6 +74,18 @@ describe('CiudadService', () => {
     expect(storedCiudad.nombre).toEqual(newCiudad.nombre)
   });
 
+  it('create with invalid pais should throw an exception', async () => {
+    const ciudad: CiudadEntity = {
+      id: "",
+      nombre: faker.address.cityName(), 
+      pais: "Holanda",
+      num_habitantes: Math.random(),
+      supermercados: []
+    }
+
+    await expect(() => ciudadService.create(ciudad)).rejects.toHaveProperty("message", "The given pais for ciudad is not valid")
+  });
+
   it('update should modify a ciudad', async () => {
     const ciudad: CiudadEntity = ciudadesList[0];
     ciudad.nombre = "New name";
@@ -92,6 +104,14 @@ describe('CiudadService', () => {
       ...ciudad, nombre: "New name"
     }
     await expect(() => ciudadService.update("0", ciudad)).rejects.toHaveProperty("message", "The ciudad with the given id was not found")
+  });
+
+  it('update with invalid pais should throw an exception', async () => {
+    let ciudad: CiudadEntity = ciudadesList[0];
+    ciudad = {
+      ...ciudad, pais: "Chile"
+    }
+    await expect(() => ciudadService.update("0", ciudad)).rejects.toHaveProperty("message", "The given pais for ciudad is not valid")
   });
 
   it('delete should remove a ciudad', async () => {
