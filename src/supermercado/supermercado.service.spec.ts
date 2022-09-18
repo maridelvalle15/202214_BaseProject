@@ -29,8 +29,8 @@ describe('SupermercadoService', () => {
     for(let i = 0; i < 5; i++){
       const supermercado: SupermercadoEntity = await supermercadoRepository.save({
         nombre: faker.lorem.sentence(3),
-        longitud: 1,
-        latitud: 1,
+        longitud: "74°04'51''",
+        latitud: "4° 35'56''",
         pag_web: faker.internet.domainName()
       })
       supermercadosList.push(supermercado);
@@ -62,8 +62,8 @@ describe('SupermercadoService', () => {
     const supermercado: SupermercadoEntity = {
       id: "",
       nombre: faker.lorem.sentence(3),
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+        latitud: "4° 35'56''",
       pag_web: faker.internet.domainName(),
       ciudades: []
     }
@@ -80,8 +80,8 @@ describe('SupermercadoService', () => {
     const supermercado: SupermercadoEntity = {
       id: "",
       nombre: "nombre",
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+      latitud: "4° 35'56''",
       pag_web: faker.internet.domainName(),
       ciudades: []
     }

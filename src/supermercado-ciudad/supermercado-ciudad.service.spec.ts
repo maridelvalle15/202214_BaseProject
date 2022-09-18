@@ -35,8 +35,8 @@ describe('SupermercadoCiudadService', () => {
     for(let i = 0; i < 5; i++){
       const supermercado: SupermercadoEntity = await supermercadoRepository.save({
         nombre: faker.lorem.sentence(3),
-        longitud: 1,
-        latitud: 1,
+        longitud: "74°04'51''",
+        latitud: "4° 35'56''",
         pag_web: faker.internet.domainName()
       })
       supermercadosList.push(supermercado);
@@ -61,8 +61,8 @@ describe('SupermercadoCiudadService', () => {
   it('addSupermercadoToCiudad should add a supermercado to a ciudad', async () => {
     const newSupermercado: SupermercadoEntity = await supermercadoRepository.save({
       nombre: "varios caracteres",
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+      latitud: "4° 35'56''",
       pag_web: faker.internet.domainName()
     });
 
@@ -97,8 +97,8 @@ describe('SupermercadoCiudadService', () => {
   it('addSupermercadoToCiudad should throw an exception for an invalid ciudad', async () => {
     const newSupermercado: SupermercadoEntity = await supermercadoRepository.save({
       nombre: faker.lorem.sentence(3),
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+      latitud: "4° 35'56''",
       pag_web: faker.internet.domainName()
     });
 
@@ -117,8 +117,8 @@ describe('SupermercadoCiudadService', () => {
   it('findSupermercadoFromCiudad should throw an exception for a supermercado not associated to the ciudad', async () => {
     const newSupermercado: SupermercadoEntity = await supermercadoRepository.save({
       nombre: faker.lorem.sentence(3),
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+      latitud: "4° 35'56''",
       pag_web: faker.internet.domainName()
     });
 
@@ -137,8 +137,8 @@ describe('SupermercadoCiudadService', () => {
   it('updateSupermercadosFromCiudad should update artworks list for a museum', async () => {
     const newSupermercado: SupermercadoEntity = await supermercadoRepository.save({
       nombre: faker.lorem.sentence(3),
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+      latitud: "4° 35'56''",
       pag_web: faker.internet.domainName()
     });
 
@@ -154,8 +154,8 @@ describe('SupermercadoCiudadService', () => {
   it('updateSupermercadosFromCiudad should throw an exception for an invalid ciudad', async () => {
     const newSupermercado: SupermercadoEntity = await supermercadoRepository.save({
       nombre: faker.lorem.sentence(3),
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+      latitud: "4° 35'56''",
       pag_web: faker.internet.domainName()
     });
 
@@ -193,8 +193,8 @@ describe('SupermercadoCiudadService', () => {
   it('deleteSupermercadoFromCiudad should thrown an exception for an non asocciated supermercado', async () => {
     const newSupermercado: SupermercadoEntity = await supermercadoRepository.save({
       nombre: faker.lorem.sentence(3),
-      longitud: 1,
-      latitud: 1,
+      longitud: "74°04'51''",
+      latitud: "4° 35'56''",
       pag_web: faker.internet.domainName()
     });
 

@@ -6,15 +6,11 @@ export class SupermercadoDto {
 
   @IsString()
   @IsNotEmpty()
-  readonly pais: string;
+  readonly longitud: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  readonly longitud: number;
-
-  @IsNumber()
-  @IsNotEmpty()
-  readonly latitud: number;
+  readonly latitud: string;
 
   @IsUrl()
   @IsNotEmpty()
