@@ -134,7 +134,7 @@ describe('SupermercadoCiudadService', () => {
     await expect(()=> supermercadoCiudadService.findSupermercadosFromCiudad("0")).rejects.toHaveProperty("message", "The ciudad with the given id was not found"); 
   });
 
-  it('updateSupermercadosFromCiudad should update artworks list for a museum', async () => {
+  it('updateSupermercadosFromCiudad should update supermercados list for a ciudad', async () => {
     const newSupermercado: SupermercadoEntity = await supermercadoRepository.save({
       nombre: faker.lorem.sentence(3),
       longitud: "74°04'51''",
@@ -162,7 +162,7 @@ describe('SupermercadoCiudadService', () => {
     await expect(()=> supermercadoCiudadService.updateSupermercadosFromCiudad("0", [newSupermercado])).rejects.toHaveProperty("message", "The ciudad with the given id was not found"); 
   });
 
-  it('updateSupermercadosFromCiudad should throw an exception for an invalid producto', async () => {
+  it('updateSupermercadosFromCiudad should throw an exception for an invalid supermercado', async () => {
     const newSupermercado: SupermercadoEntity = supermercadosList[0];
     newSupermercado.id = "0";
 
