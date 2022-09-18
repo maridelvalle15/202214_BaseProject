@@ -1,5 +1,5 @@
 import {IsNotEmpty, IsNumber, IsString, IsUrl} from 'class-validator';
-export class CategoriaDto {
+export class SupermercadoDto {
   @IsString()
   @IsNotEmpty()
   readonly nombre: string;
