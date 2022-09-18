@@ -5,7 +5,7 @@ import { SupermercadoDto } from './supermercado.dto';
 import { SupermercadoEntity } from './supermercado.entity';
 import { SupermercadoService } from './supermercado.service';
 
-@Controller('supermercado')
+@Controller('supermercados')
 @UseInterceptors(BusinessErrorsInterceptor)
 export class SupermercadoController {
     constructor(
